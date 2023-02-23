@@ -31,7 +31,7 @@ export const actions = {
 			const session = await auth.createSession(key.userId);
 			event.locals.setSession(session);
 		} catch (e) {
-			throw error(400);
+			throw error(400, 'Invalid credentials');
 		}
 
 		throw redirect(302, '/');
